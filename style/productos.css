@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #E9ECF4;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    min-width: 500px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(auto-fill, auto);
+    grid-template-areas: "header header header header header" "busqueda busqueda busqueda busqueda busqueda" "producto producto producto producto producto";
+}
+
+
+/* Estilo header */
+
+.contenedor .header {
+    grid-area: header;
+    display: flex;
+    grid-template-columns: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor .header img {
+    width: 100px;
+    align-self: flex-start;
+    border-radius: 20px;
+}
+
+
+/* Estilo barra busqueda*/
+
+.contenedor .barra-busqueda {
+    margin: auto;
+    grid-area: busqueda;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: thin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor .barra-busqueda input {
+    height: 20px;
+    border-radius: 20px;
+    flex-grow: 3fr;
+}
+
+.contenedor .barra-busqueda button {
+    border-radius: 5px;
+}
+
+
+/* Estilo productos*/
+
+.contenedor .producto {
+    display: grid;
+    grid-template-columns: 5;
+}
+
+.contenedor .nombre {
+    grid-column: 1 / 2;
+}
+
+.contenedor .categoria {
+    grid-column: 2 / 3;
+}
+
+.contenedor .costo {
+    grid-column: 3 / 4;
+}
+
+.contenedor .precio-sugerido {
+    grid-column: 4 / 5;
+}
+
+.contenedor .inventario {
+    grid-column: 5 / 6;
+}
