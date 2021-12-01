@@ -21,7 +21,7 @@ import { getDatabase, ref, get, set, child, update, remove } from "https://www.g
 
 const tr = document.createElement('tr');
 tr.className = 'producto';
-const parentNode = document.querySelector('.contenedor');
+const parentNode = document.querySelector('.producto');
 
 // Getting data from firebase
 const dbRef = ref(getDatabase());
@@ -46,7 +46,7 @@ get(child(dbRef, "ProductosYPrecios/"))
                     <div class="costo">${cost}</div>
                 </th>
                 <th>
-                    <div class="precio-sugerido">${price} sugerido</div>
+                    <div class="precio-sugerido">${price}</div>
                 </th>
                 `);
                 tr.style.cssText = ""
