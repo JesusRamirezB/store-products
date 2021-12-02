@@ -39,108 +39,113 @@ function SuggestedPrice(cost, category) {
     switch (category) {
         case 'Abarrotes':
             mar = 1.38;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'FrutasVerduras':
             mar = 1.5;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Farmacia':
             mar = 1.5;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case '18+':
             mar = 1.5;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Higiene':
             mar = 1.38;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Bebidas':
-            mar = 1.33;
-            precio = parseInt(cost) * mar;
+            mar = 1.26;
+            precio = cost * mar;
             return precio;
             break;
         case 'Desechable':
             mar = 1.4;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Sabritas':
             mar = 1.33;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Gamesa':
             mar = 1.33;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Barcel':
             mar = 1.33;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Bimbo':
             mar = 1.33;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Marinela':
             mar = 1.33;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Especias':
             mar = 1.33;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Yoplait':
             mar = 1.33;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Regalos':
             mar = 1.38;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Dulceria':
             mar = 1.38;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         case 'Papeleria':
             mar = 1.5;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
         default:
             mar = 1.38;
-            precio = parseInt(cost) * mar;
+            precio = cost * mar;
             return precio;
             break;
     }
 }
 
 function InsertData() {
-    let precio = SuggestedPrice(costo.value, categoria.value)
+    let costo2 = parseInt(costo.value) / parseInt(inventario.value)
+    let precio = SuggestedPrice(costo2, categoria.value);
     set(ref(db, "ProductosYPrecios/" + nombre.value), {
             NombreProducto: nombre.value,
             Categoria: categoria.value,
-            Costo: costo.value,
+            Costo: costo2,
             Precio: precio,
             Inventario: inventario
         })
         .then(() => {
-            alert("Data stored succesfully!");
+            nombre.value = "";
+            categoria.value = "";
+            costo.value = "";
+            inventario.value = "";
+            console.log("Data stored succesfully!");
         })
         .catch((error) => {
             alert("unsuccessful, error" + error);
@@ -157,7 +162,6 @@ function SelectData() {
                 categoria.value = snapshot.val().Categoria;
                 costo.value = snapshot.val().Costo;
 
-                //alert("Studen with RollNo. " + rollbox.value + " name's is " + namebox.value)
             } else {
                 altert("No data found");
             }
@@ -168,14 +172,20 @@ function SelectData() {
 }
 
 function UpdateData() {
-    const dbref = ref(db);
-    update(ref(db, "TheStudents/" + rollbox.value), {
-            NameOfStd: namebox.value,
-            RollNo: rollbox.value,
-            Section: secbox.value,
-            Gender: genbox.value
+    let costo2 = parseInt(costo.value) / parseInt(inventario.value)
+    let precio = SuggestedPrice(costo2, categoria.value);
+    update(ref(db, "TheStudents/" + nombre.value), {
+            NombreProducto: nombre.value,
+            Categoria: categoria.value,
+            Costo: costo2,
+            Precio: precio,
+            Inventario: inventario
         }).then(() => {
-            alert("Data updated succesfully!");
+            nombre.value = "";
+            categoria.value = "";
+            costo.value = "";
+            inventario.value = "";
+            console.log("Data updated succesfully!");
         })
         .catch((error) => {
             alert("unsuccessful, error" + error);
@@ -194,6 +204,7 @@ function RemoveData() {
 }
 
 /* Assign events to btns */
+
 insBtn.addEventListener('click', InsertData);
 selBtn.addEventListener('click', SelectData);
 updBtn.addEventListener('click', UpdateData);

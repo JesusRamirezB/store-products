@@ -26,52 +26,51 @@
                 <a href="admin.html" style="font-weight: bold;">Administrador</a>
             </div>
         </header>
-        <form class="formulario ">
-            <div class="nombre ">
+        <div class="formulario">
+            <div class="nombre">
                 <!-- <label for="nombre ">Nombre de producto:</label> -->
-                <input id="nombre " type="text " required placeholder="Nombre de producto ">
+                <input id="nombre" type="text" placeholder="Nombre de producto" autocomplete="off">
             </div>
-            <div class="categoria ">
+            <div class="categoria">
                 <!-- <label for="categoria ">Categoria:</label> -->
-                <select id="categoria ">
-                    <option selected>Elige una categoria</option>
-                    <option value="Abarrotes ">Abarrotes</option>
-                    <option value="FrutasVerduras ">Frutas y verduras</option>
-                    <option value="Farmacia ">Farmacia</option>
-                    <option value="18+ ">18+</option>
-                    <option value="Higiene ">Higiene</option>
-                    <option value="Bebidas ">Bebidas</option>
-                    <option value="Desechable ">Desechable</option>
-                    <option value="Sabritas ">Sabritas</option>
-                    <option value="Gamesa ">Gamesa</option>
-                    <option value="Barcel ">Barcel</option>
-                    <option value="Bimbo ">Bimbo</option>
-                    <option value="Marinela ">Marinela</option>
-                    <option value="Especias ">Especias</option>
-                    <option value="Yoplait ">Yoplait</option>
-                    <option value="Regalos ">Regalos</option>
-                    <option value="Dulceria ">Dulceria</option>
-                    <option value="Papeleria ">Papeleria</option>
+                <select id="categoria">
+                    <option>Elige una categoria</option>
+                    <option value="Abarrotes">Abarrotes</option>
+                    <option value="FrutasVerduras">Frutas y verduras</option>
+                    <option value="Farmacia">Farmacia</option>
+                    <option value="18+">18+</option>
+                    <option value="Higiene">Higiene</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="Desechable">Desechable</option>
+                    <option value="Sabritas">Sabritas</option>
+                    <option value="Gamesa">Gamesa</option>
+                    <option value="Barcel">Barcel</option>
+                    <option value="Bimbo">Bimbo</option>
+                    <option value="Marinela">Marinela</option>
+                    <option value="Especias">Especias</option>
+                    <option value="Yoplait">Yoplait</option>
+                    <option value="Regalos">Regalos</option>
+                    <option value="Dulceria">Dulceria</option>
+                    <option value="Papeleria">Papeleria</option>
                 </select>
             </div>
-            <div class="costo ">
+            <div class="costo">
                 <!-- <label for="costo ">Costo</label> -->
-                <input id="costo " type="text " required placeholder="Costo ">
+                <input id="costo" type="text" placeholder="Costo">
             </div>
-            <div class="inventario ">
+            <div class="inventario">
                 <!-- <label for="inventario ">Inventario</label> -->
-                <input id="inventario " type="text " required placeholder="inventario ">
+                <input id="inventario" type="text" placeholder="cantidad">
             </div>
-        </form>
+            <button id="Insbtn">INSERT</button>
+            <button id="Selbtn">SELECT</button>
+            <button id="Updbtn">UPDATE</button>
+            <button id="Delbtn">DELETE</button>
+        </div>
 
-        <hr>
-        <button id="Insbtn " type="submit ">INSERT</button>
-        <button id="Selbtn " type="submit ">SELECT</button>
-        <button id="Updbtn " type="submit ">UPDATE</button>
-        <button id="Delbtn " type="submit ">DELETE</button>
+
     </div>
-    <script type="module " src="backend/conexion.js ">
-
+    <script type="module" src="backend/conexion.js">
     </script>
 </body>
 
