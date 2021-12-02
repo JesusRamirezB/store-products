@@ -23,38 +23,73 @@ const tr = document.createElement('tr');
 tr.className = 'producto';
 const parentNode = document.querySelector('.producto');
 
+var txtBusqueda = document.getElementById("txtBusqueda");
+var btnBuscar = document.getElementById("btnBusqueda");
+
+
+
 // Getting data from firebase
 const dbRef = ref(getDatabase());
-get(child(dbRef, "ProductosYPrecios/"))
-    .then((snapshot) => {
-        if (snapshot.exists()) {
-            console.log(snapshot.val());
-            snapshot.forEach(child => {
-                let name = child.val().NombreProducto;
-                let category = child.val().Categoria;
-                let cost = child.val().Costo;
-                let price = child.val().Precio;
-                console.log(name);
-                tr.innerHTML += (`
-                <th>
-                    <div class="nombre">${name}</div>
-                </th>
-                <th>
-                    <div class="categoria">${category}</div>
-                </th>
-                <th>
-                    <div class="costo">${cost}</div>
-                </th>
-                <th>
-                    <div class="precio-sugerido">${price}</div>
-                </th>
-                `);
-                tr.style.cssText = ""
-                parentNode.appendChild(tr);
+
+function insertToHTML(prod) {
+    let name = prod.val().NombreProducto;
+    let category = prod.val().Categoria;
+    let cost = prod.val().Costo;
+    let price = prod.val().Precio;
+    console.log(name);
+    tr.innerHTML += (`
+        <th>
+            <div class="nombre">${name}</div>
+        </th>
+        <th>
+            <div class="categoria">${category}</div>
+        </th>
+        <th>
+            <div class="costo">${cost}</div>
+        </th>
+        <th>
+            <div class="precio-sugerido">${price}</div>
+        </th>
+        `);
+    tr.style.cssText = ""
+    parentNode.appendChild(tr);
+}
+
+function getProducts() {
+    tr.innerHTML = "";
+    let bdBusqueda = '';
+    if (txtBusqueda.value == '') {
+        get(child(dbRef, 'ProductosYPrecios/'))
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    console.log(snapshot.val());
+                    snapshot.forEach(child => {
+                        insertToHTML(child);
+                    });
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
             });
-        } else {
-            console.log("No data available");
-        }
-    }).catch((error) => {
-        console.error(error);
-    });
+    } else {
+        get(child(dbRef, 'ProductosYPrecios/'))
+            .then((snapshot) => {
+                snapshot.forEach(child => {
+                    let prname = child.val().NombreProducto.toLowerCase();
+                    let srch = txtBusqueda.value.toLowerCase();
+                    if (prname.includes(srch)) {
+                        console.log(prname.toLowerCase());
+                        insertToHTML(child);
+                    }
+                });
+            }).catch((error) => {
+                console.error(error);
+            });
+    }
+    console.log(bdBusqueda)
+}
+
+window.onload = getProducts;
+txtBusqueda.addEventListener('keydown', getProducts);
+btnBuscar.addEventListener('click', getProducts);

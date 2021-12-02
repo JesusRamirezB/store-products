@@ -62,4 +62,6 @@ body {
     grid-template-columns: repeat(4, 1fr);
     flex-direction: row;
     align-items: center;
+    border: solid;
+    border-width: thin;
 }

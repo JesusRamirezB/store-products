@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="nombre">Nombre de producto:</label><input id="nombre" type="text" required>
+        <label for="categoria">Categoria:</label>
+        <select id="categoria">
+            <option value="Abarrotes">Abarrotes</option>
+            <option value="FrutasVerduras">Frutas y verduras</option>
+            <option value="Farmacia">Farmacia</option>
+            <option value="18+">18+</option>
+            <option value="Higiene">Higiene</option>
+            <option value="Bebidas">Bebidas</option>
+            <option value="Desechable">Desechable</option>
+            <option value="Sabritas">Sabritas</option>
+            <option value="Gamesa">Gamesa</option>
+            <option value="Barcel">Barcel</option>
+            <option value="Bimbo">Bimbo</option>
+            <option value="Marinela">Marinela</option>
+            <option value="Especias">Especias</option>
+            <option value="Yoplait">Yoplait</option>
+        </select>
+        <label for="costo">Costo</label><input id="costo" type="text" required>
+        <label for="inventario">Inventario</label><input id="inventario" type="text" required>
+    </form>
+
+    <hr>
+    <button id="Insbtn" type="submit">INSERT</button>
+    <button id="Selbtn" type="submit">SELECT</button>
+    <button id="Updbtn" type="submit">UPDATE</button>
+    <button id="Delbtn" type="submit">DELETE</button>
+    <script type="module" src="backend/conexion.js">
+
+    </script>
+</body>
+
+</html>
