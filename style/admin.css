@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+@viewport {
+    width: device-width;
+    zoom: 1;
+    min-zoom: 0.5;
+    max-zoom: 3;
+    user-zoom: fixed;
+}
+
 body {
     background: #E9ECF4;
     color: #000;
