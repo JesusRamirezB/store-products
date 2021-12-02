@@ -58,32 +58,17 @@ body {
 }
 
 
-/* Estilo barra busqueda*/
+/* Estilo formulario */
 
-.contenedor .barra-busqueda {
-    margin: l0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.contenedor .barra-busqueda input {
-    border-radius: 5px;
-}
-
-.contenedor .barra-busqueda button {
-    border-radius: 5px;
-}
-
-
-/* Estilo productos*/
-
-.contenedor .producto tr {
+.contenedor .formulario {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    flex-direction: row;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 20px;
+    justify-content: center;
     align-items: center;
-    border: solid;
-    border-width: thin;
-    border-radius: 10px;
+}
+
+.contenedor button {
+    width: 100px;
+    margin: auto;
 }

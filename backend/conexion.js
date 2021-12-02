@@ -38,7 +38,7 @@ function SuggestedPrice(cost, category) {
     let mar = '';
     switch (category) {
         case 'Abarrotes':
-            mar = 1.33;
+            mar = 1.38;
             precio = parseInt(cost) * mar;
             return precio;
             break;
@@ -58,7 +58,7 @@ function SuggestedPrice(cost, category) {
             return precio;
             break;
         case 'Higiene':
-            mar = 1.33;
+            mar = 1.38;
             precio = parseInt(cost) * mar;
             return precio;
             break;
@@ -107,8 +107,23 @@ function SuggestedPrice(cost, category) {
             precio = parseInt(cost) * mar;
             return precio;
             break;
+        case 'Regalos':
+            mar = 1.38;
+            precio = parseInt(cost) * mar;
+            return precio;
+            break;
+        case 'Dulceria':
+            mar = 1.38;
+            precio = parseInt(cost) * mar;
+            return precio;
+            break;
+        case 'Papeleria':
+            mar = 1.5;
+            precio = parseInt(cost) * mar;
+            return precio;
+            break;
         default:
-            mar = 1.33;
+            mar = 1.38;
             precio = parseInt(cost) * mar;
             return precio;
             break;
