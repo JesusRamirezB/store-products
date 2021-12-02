@@ -93,7 +93,7 @@ function SuggestedPrice(cost, category) {
             return precio;
             break;
         case 'Marinela':
-            mar = 1.33;
+            mar = 1.45;
             precio = cost * mar;
             return precio;
             break;
@@ -131,7 +131,7 @@ function SuggestedPrice(cost, category) {
 }
 
 function InsertData() {
-    let costo2 = parseInt(costo.value) / parseInt(inventario.value)
+    let costo2 = parseInt(costo.value) / parseInt(inventario.value);
     let precio = SuggestedPrice(costo2, categoria.value);
     set(ref(db, "ProductosYPrecios/" + nombre.value), {
             NombreProducto: nombre.value,
