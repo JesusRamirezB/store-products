@@ -34,8 +34,8 @@ const dbRef = ref(getDatabase());
 function insertToHTML(prod) {
     let name = prod.val().NombreProducto;
     let category = prod.val().Categoria;
-    let cost = prod.val().Costo;
-    let price = prod.val().Precio;
+    let cost = prod.val().Costo.toFixed(2);
+    let price = prod.val().Precio.toFixed(2);
     console.log(name);
     tr.innerHTML += (`
         <th>
